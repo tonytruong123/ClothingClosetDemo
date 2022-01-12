@@ -1,0 +1,318 @@
+/* when i click at the image, i want the image to scale up */
+/* transition: all 1s ease-in-out */
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    background-color: #363636;
+    height: 50px;
+}
+.navbar-container{
+    font-family: 'Merriweather', serif;
+    display:flex;
+    align-items:center;
+    padding: 0 50px;
+    height: 100%;
+    color: white;
+}
+
+.logo-container{
+    flex:1;
+}
+
+.logo{
+    font-size: 30px;
+    color: #ec1c4b;
+}
+
+.menu-container{
+    flex:6;
+}
+
+.menu-list{
+    display: flex;
+    list-style: none;
+}
+
+.menu-list-item{
+    margin: 30px;
+}
+
+.menu-list-item.active{
+    font-weight: bold;
+}
+
+.profile-container{
+    flex:2;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;   
+}
+.profile-text-container{
+    margin:0 20px;
+}
+
+.profile-picture{
+    width: 32px;
+    height:32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.toggle{
+    width: 40px;
+    height:20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: start;
+    justify-content:space-around;
+    position: relative;
+}
+
+.toggle-icon{
+    color: goldenrod;
+}
+.toggle-ball{
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 1s ease all;
+}
+
+.sidebar{
+    width:50px;
+    height: 100%;
+    background-color: #363636;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    padding-top: 60px;
+}
+
+.left-menu-icon{
+    color: white;
+    font-size:20px;
+    margin-bottom: 40px;
+}
+
+.container{
+    background-color: #363636;
+    /* because the height is now at 100%, so now we need to set the min-height to adjust the height */
+    min-height: calc(100vh - 50px);
+    color: white;
+}
+
+.content-container{
+    margin-left: 50px;
+}
+
+.featured-content{
+    height: 50vh;
+    padding: 50px;
+}
+.featured-title{
+    width: 300px;
+}
+
+.featured-desc{
+    width: 500px;
+    color: black;
+    margin: 30px 0;
+}
+
+.featured-button{
+    color: white;
+    background-color: #363636;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.shoe-list-container{
+    padding: 0 20px;
+}
+
+/* add the overflow so when we hit the arrow, it will not pop up white blank */
+.shoe-list-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.shoe-list{
+    display: flex;
+    align-items: center;
+    height:300px;
+    /* the list will now move moore smooth */
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+}
+
+.shoe-list-item{
+    margin-right: 30px;
+    position: relative;
+}
+
+/* remember this one: really important => the picture scale up and move */
+.shoe-list-item:hover .shoe-list-item-img{
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 0.5;
+}
+
+.shoe-list-item:hover .shoe-list-item-title,
+.shoe-list-item:hover .shoe-list-item-descent,
+.shoe-list-item:hover .shoe-list-item-button{
+    opacity: 1;
+}
+
+.shoe-list-item-img{
+    width: 270px;
+    height: 200px;
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    border-radius: 20%;
+}
+
+.shoe-list-item-title{
+    background-color: #333;
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    width: 150px;
+    opacity: 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: 1s all ease-in-out;
+}
+
+.shoe-list-item-descent{
+    background-color: #333;
+    padding:10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    width: 200px;
+    opacity: 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: 1s all ease-in-out;
+}
+
+.shoe-list-item-button{
+    padding: 10px;
+    background-color: #ec1c4b ;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.arrow{
+    font-size: 120px;
+    position: absolute;
+    top: 90px;
+    color: #355c7d;
+    right: 0;
+    opacity: 0.5;
+    cursor: pointer;
+    animation: animate 3s infinite linear;
+}
+
+@keyframes animate{
+    0%{ 
+        color:#355c7d;
+    }
+    20%{ 
+        color:#ec1c4b;
+        text-shadow: 0 0 8px #262626, 0 0 20px #ff11ff;
+    }
+    30%{ 
+        color:#355c7d;
+        text-shadow: none;
+    }
+    40%{ 
+        color:#ec1c4b;
+        text-shadow: 0 0 8px #262626, 0 0 20px #ff11ff;
+    }
+    50%{ 
+        color:#355c7d;
+        text-shadow: none;
+    }
+    60%{ 
+        color:#355c7d;
+        text-shadow: none;
+    }
+    75%{ 
+        color:#ec1c4b;
+        text-shadow: 0 0 8px #262626, 0 0 20px #ff11ff;
+    }
+    100%{ 
+        color:#355c7d;
+        text-shadow: none;
+    }
+}
+
+/* another background for the mode changing */
+
+.container.active{
+    background-color: #f8f8ff;
+}
+.owner-list-title.active{
+    color: #5a5050;
+}
+
+.navbar-container.active{
+    background-color: #f8f8ff;
+    color: #5a5050;
+}
+
+.sidebar.active{
+    background-color: #f8f8ff;
+}
+
+.left-menu-icon.active{
+    color: #5a5050;
+}
+
+.toggle.active{
+    background-color: #5a5050;
+}
+
+.toggle-ball.active{
+    background-color: #f8f8ff;
+    transform: translateX(-19.5px);
+}
+
+/* to make the website more responsive */
+@media only screen and (max-width: 940px){
+    .menu-container{
+        display: none;
+    }
+}
