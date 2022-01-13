@@ -25,6 +25,20 @@
                     <li class="menu-list-item">Trends</li>
                 </ul>
             </div>
+
+            <div class="search-box">
+                <input class="search-txt" id="text123" placeholder="Type the city for weather">
+                <a class="search-btn" href="#">
+                    <button class="fas fa-search-location" id ="button1" onclick="weatherFn()"></button>
+                </a>
+
+            </div>
+
+            <div class = "weather-result">
+                <h1 id="resultWeather">Result</h1>
+            </div>
+
+
             <div class="profile-container">
                 <img class ="profile-picture" src="Image/profile.jpg" alt="">
                 <div class="profile-text-container">
@@ -122,13 +136,20 @@
         </div>
         <div class="featured-content" 
         style = "background-image: linear-gradient(to bottom, rgba(0,0,0,0),#363636 ), url('Image/Nature.jpeg');">
-<!-- may add the bitcoin price in here -->
-
-        <!-- <img class="featured-title" src="Image/Jordan3.jpeg" alt=""></img> -->
-            <!-- <p class="featured-desc">We are young men with great ambitions. This is a website about our favourite shoes. 
-                Hope everyone will have a fantastic 2022 year. 
-            </p>
-                <a href="https://www.adidas.com/us/yeezy" target="_blank" ><button class="featured-button" >ADIDAS YEEZY</button></a> -->
+                <div class = "info1">
+                    <div class ="title1">
+                        <!-- h1 represent section heading-->
+                        <h1 class="count1" style ="color:#474747">Bitcoin Price</h1>
+                    </div>
+        
+                    <div class="update">
+                        <h1 class="count1" id="price">0</h1>
+                    </div>
+        
+                    <div class="update">
+                        <h1 class="count1" id="time">0</h1>
+                    </div>
+                </div>
         </div>
         <div class="shoe-list-container">
             <h1 class="owner-list-title">My Homie Shoes</h1>

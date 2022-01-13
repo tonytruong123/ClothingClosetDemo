@@ -1,6 +1,56 @@
 const arrows = document.querySelectorAll(".arrow");
 const shoeLists = document.querySelectorAll(".shoe-list");
 
+let pp = document.querySelector('#price');
+let tt = document.querySelector('#time');
+
+const api_url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR';
+async function getISS(){
+    const response = await fetch(api_url);
+    const data = await response.json();
+    const {USD} = data;
+
+    pp.textContent = "Price: $ " + USD;
+}
+setInterval(getISS, 1000)
+
+const ii = document.querySelector('#resultWeather');
+const bb = document.querySelector(".weather-result");
+var narrow = document.getElementById("result-weather");
+var search_box = document.querySelector(".search-box");
+function weatherFn(){
+    var vv = document.getElementById("text123").value;
+    console.log(vv);
+    // bb.innerHTML = vv
+    
+    api ="https://api.openweathermap.org/data/2.5/weather?q="+vv+"&appid=12d02cb722709709e0889db756957fca"
+    fetch(api)
+                    .then(response => response.json())
+                    .then(data => {
+                    var nameValue = data['name'];
+                    var tempValue = Math.round(data['main']['temp']-273.15);
+                    var descValue = data['weather'][0]['description'];
+                    bb.innerHTML ="City: " + nameValue+ ". Temp: " + tempValue + "°C" + ". Condition: " + descValue;
+                    
+                    })
+                    
+    .catch(err => alert("wrong city name!"))
+    bb.classList.add("active123");
+    search_box.classList.add("active123");
+}
+
+let timeCount1 = function(){
+
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    tt.innerHTML = "Update at: " + time;
+
+}
+
+setInterval(timeCount1, 1000)
+
+
 arrows.forEach((arrow, i) => {
     // when we decrease the screen size, we only want it to display n amount of stuffs that match with the available display of the screen, 270 is our picture's height
     const itemNumber = shoeLists[i].querySelectorAll("img").length;
@@ -24,7 +74,7 @@ arrows.forEach((arrow, i) => {
 const ball = document.querySelector(".toggle-ball");
 // we collect every item that we need to change the color and add them to a list
 const items = document.querySelectorAll(
-    ".container,.owner-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
+    ".container,.owner-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle,.weather-result"
 );
 // when the ball is being clicked, we will add the "active mode to those class by classList.toggle"
 ball.addEventListener("click", () => {
@@ -33,6 +83,7 @@ ball.addEventListener("click", () => {
     });
     // apply for the ball too
     ball.classList.toggle("active");
+    
     });
 
 

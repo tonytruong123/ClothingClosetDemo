@@ -48,6 +48,66 @@ body {
     font-weight: bold;
 }
 
+.search-box{
+    position: absolute;
+    top: 0.2%;
+    right: 33%;
+    transform: translate(-10%, -10%);
+    background: #355c7d;
+    height: 34px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.search-box:hover > .search-txt{
+    width: 200px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn{
+    background: white;
+
+}
+
+.search-btn{
+    color: #363636;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #355c7d;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    transition: 0.4s;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size:16px;
+    transition: 0.4s;
+    line-height: 34px;
+    width: 0px;
+}
+
+.weather-result{
+    top: 0.4%;
+    right: 27%;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 10px;
+    object-fit: cover;
+    position: absolute;
+}
+
+
 .profile-container{
     flex:2;
     display:flex;
@@ -123,6 +183,7 @@ body {
 .featured-content{
     height: 50vh;
     padding: 50px;
+    border-radius: 15%;
 }
 .featured-title{
     width: 300px;
@@ -310,9 +371,37 @@ body {
     transform: translateX(-19.5px);
 }
 
+
+.weather-result.active{
+    color: black;
+}
+
+.weather-result.active123{
+    top: 2%;
+    right: 13%;
+    color: red;
+}
+.search-box.active123{
+    top: 0.2%;
+    right: 37%;
+}
+
 /* to make the website more responsive */
 @media only screen and (max-width: 940px){
     .menu-container{
         display: none;
     }
+
+    .search-box{
+        display: none;
+    }
+
+    .weather-result{
+        display:none;
+    }
+}
+
+.info1 .count1{
+    color: #f8f8ff;
+    font: FreeMono, monospace
 }
